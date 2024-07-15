@@ -26,8 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restaurant',
-    'authentication'
-    
+    'authentication',
+    'rangefilter',   
 ]
 
 MIDDLEWARE = [

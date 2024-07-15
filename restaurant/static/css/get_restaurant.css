@@ -1,0 +1,170 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+font-family: "Nunito Sans", sans-serif;
+background-color: #151515;
+color: #fff;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+h1{
+    font-size: 4vw;
+    border-bottom: 1px solid #fff;
+    color: #dadada;
+}
+#page1{
+    padding-top: 5vw;
+    width: 100%;
+    display: flex;
+    gap: 2vw;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search_add #myForm{
+    display: flex ;
+    gap:.5vw;
+    align-items: center;
+    justify-content: space-between;
+}
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    width: 500px;
+    max-width: 500px;
+   }
+   
+   .input {
+    width: 500px;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+   }
+   
+   .input::placeholder {
+    color: #9e9ea7;
+   }
+   
+   .input:focus, input:hover {
+    outline: none;
+    border-color: rgba(234,76,137,0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+   }
+   
+   .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    background-color: transparent;
+    width: 1rem;
+    height: 1rem;
+   }
+   
+   
+   
+   
+   
+   
+#page1 table{
+    border-collapse: collapse;
+}
+#page1 table th,td{
+    padding: 1vw 3vw;
+    font-size: 1.2vw;
+}
+#page1 table th{
+    font-size:1.4vw ;
+    font-weight: 800;
+}
+#page1 table td{
+font-weight: 100;
+}
+
+#buttons{
+    display: flex ;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vw;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw 3vw;
+    gap: 8px;
+    height: 20px;
+    width: 2vw;
+    border: none;
+    background: #FF342B;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all ease .3s;
+    text-decoration: none;
+  }
+  .ui-helper-hidden-accessible {
+    display: none !important;
+  }
+  #Add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw 2vw;
+    gap: 8px;
+    height: 40px;
+    width: 6vw;
+    border: none;
+    background-color: #f3f3f4;;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease .3s;
+    text-decoration: none;
+  }
+  .button i{
+    font-size:20px;
+    background-color: transparent;
+  }
+  
+  .lable {
+    line-height: 22px;
+    font-size: 17px;
+    color: #fff;
+    background-color: transparent;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  .button:hover {
+    background: #e52e26;
+  }
+  
+  .button:hover .svg-icon {
+    animation: slope 1s linear infinite;
+  }
+  
+  @keyframes slope {
+    0% {
+    }
+  
+    50% {
+      transform: rotate(10deg);
+    }
+  
+    100% {
+    }
+  }

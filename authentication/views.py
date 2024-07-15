@@ -23,7 +23,7 @@ def login(request):
                     if user is not None:
                         if user.check_password(password):
                                 auth.login(request, user)
-                                return redirect("/get_book/")
+                                return redirect("/home/")
                         else:
                                 messages.error(request, "Invalid password")
                                 return redirect("/login/")
@@ -51,7 +51,7 @@ def login(request):
                 return redirect("/login/")
         return render(request,"login.html",{"form":form})
     else:
-        return redirect("/get_book/")
+        return redirect("/home/")
     
 def signup(request):
     if request.user.is_authenticated!=True:
@@ -83,7 +83,7 @@ def signup(request):
                 return redirect("/signup/")
         return render(request,"signup.html",{"form":form})
     else:
-        return redirect("/get_book/")
+        return redirect("/home/")
 def forgot_pass(request):
     if request.user.is_authenticated!=True:
         form=EmailForm()
@@ -112,7 +112,7 @@ def forgot_pass(request):
             
         return render(request,"forgot_pass.html",{"form":form})
     else:
-        return redirect("/get_book/")
+        return redirect("/home/")
 
 def new_pass(request,token):
     if request.user.is_authenticated!=True:
@@ -139,7 +139,7 @@ def new_pass(request,token):
                 return HttpResponse("<h2>This is not a Valid link<h2>")
         return render(request,"new_pass.html",{"form":form})
     else:
-        return redirect("/get_book/")
+        return redirect("/home/")
     
 def logout(request):
     auth.logout(request)

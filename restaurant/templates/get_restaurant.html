@@ -14,19 +14,26 @@
 </head>
 <body>
     <div id="page1">
-        <h1>Restaurants in the City</h1> <a class="button" style="background-color: red;" id="Delete" href="/logout/">
+        <h1>Best Restaurant For Your Selected Dish In The City</h1> 
+        <a class="button" style="background-color: red;" id="Delete" href="/logout/">
             <i class="ri-logout-box-line"></i>
             <span class="lable">Logout</span>
         </a>
-        
+        <a  style="width:300px;margin-left: 150px;" id="Delete" href="/home/">
+            <span class="lable">Back To Home Page</span>
+        </a>
         <div id="search_add">
             <div class="group" style="height:4vw !important;">
                 <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
                 <form method="get" id="myForm">
                     {% csrf_token %}
-                <input placeholder="Search Dishes" type="search" class="input" id="search" name="search" required>
+                {% if search %}
+                <input type="search" class="input" id="search" name="search" placeholder="{{search}}" required>
+                {% else %}
+                <input placeholder="Search Dishes" type="search" class="input" id="search" name="search" placeholder="{{search}}" required>
+                {% endif %}
                 <button style="text-decoration:none;" type="submit" id="Add">
-                    <i class="ri-search-line" style="background: transparent; color:black;"></i>
+                    <i class="ri-search-line" style="background: transparent; color:black;"></i>    
                     <span class="lable" style="color:rgb(7, 7, 7) !important ;">Search</span>
                   </button>
                 </form>
@@ -49,24 +56,22 @@
                 <th>Lat,Long</th>
 
             </tr>
-            {% for restaurant in restaurants %}
             <tr>
-                <td><a  style="text-decoration: none;">{{restaurant.id}}</a></td>
-                <td><a  style="text-decoration: none;">{{restaurant.name}}</a></td>
-                <td>{{restaurant.location}}</td>
-                <td>{{restaurant.latitude}},{{restaurant.longitude}}</td>
+                <td><a style="text-decoration: none;">{{restaurants.id}}</a></td>
+                <td><a style="text-decoration: none;">{{restaurants.name}}</a></td>
+                <td>{{restaurants.location}}</td>
+                <td>{{restaurants.latitude}},{{restaurants.longitude}}</td>
             </tr>    
-            {% endfor %}
             {% elif messages %}
             {% else %}
-            <h2 style="color: red;">No restaurants in the Library</h2>
+            <h2 style="color: red;">No Restaurants In The City That Matches Your Search</h2>
             {% endif %}
         </table>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-<script>
+<script>    
     $(function(){
         $("#search").autocomplete({
             source:'{% url "home" %}'
